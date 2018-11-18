@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewInit, ChangeDetectorRef } from '@angular/core';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { TabsComponent } from './components/tabs/tabs.component'
 
 @Component({
@@ -6,7 +6,7 @@ import { TabsComponent } from './components/tabs/tabs.component'
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, AfterViewInit {
+export class AppComponent implements AfterViewInit {
   _visible: boolean;
   set visible(val) {
     this._visible = val;
@@ -14,36 +14,33 @@ export class AppComponent implements OnInit, AfterViewInit {
       this.thirdVisible();
     } else {
       this.thirdHide();
+      this.onTabSelect(0);
     }
   }
   get visible() {
     return this._visible;
   }
-  tabs = [1,2];
-  selected: number;
-  
+
+  tabs = [1, 2];
+
   @ViewChild(TabsComponent) tabsComponent: TabsComponent;
 
-  constructor(private cdr: ChangeDetectorRef) {
-    
+  constructor() {
   }
-   
-  ngOnInit() {
-  }
-  
+
   ngAfterViewInit() {
     this.tabsComponent.tabComponents.first.show = true;
   }
 
   onTabSelect(index) {
     this.tabsComponent.tabComponents
-    .forEach((item, i) => item.show = i == index ? true : false)
+      .forEach((item, i) => item.show = i == index ? true : false)
   }
 
   thirdVisible() {
     this.tabs.push(3);
   }
   thirdHide() {
-    this.tabs = this.tabs.slice(-1);
+    this.tabs.splice(-1, 1);
   }
 }
