@@ -1,0 +1,13 @@
+p {
+  font-family: Lato;
+}
+.tabs-nav {
+    display: flex;
+    margin-top: 10px;
+}
+.tabs-nav-item {
+    cursor: pointer;
+    margin: 3px;
+    padding: 3px;
+    border: 1px solid;
+}

@@ -1,0 +1,21 @@
+<button (click)="visible = !visible">Toggle 3 tab</button>
+<br>
+<div class="tabs-nav">
+  <div *ngFor="let item of tabs; let i=index" class="tabs-nav-item">
+    <span (click)="onTabSelect(i)">tab {{item}}</span>
+  </div>
+</div>
+<tabs>
+  <tab>
+    <tab-title>Tab header 1</tab-title>
+    <tab-content>Content 1</tab-content>
+  </tab>
+  <tab>
+    <tab-title>Tab header 2</tab-title>
+    <tab-content>Content 2</tab-content>
+  </tab>
+  <tab *ngIf="visible">
+    <tab-title>Tab header 3</tab-title>
+    <tab-content>Content 3</tab-content>
+  </tab>
+</tabs>
