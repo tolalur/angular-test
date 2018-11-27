@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, ViewChild, ContentChild, AfterViewInit, ChangeDetectorRef } from '@angular/core';
+import { TabBodyComponent } from './tab-body/tab-body.component';
 
 @Component({
   selector: 'tab',
@@ -8,7 +9,8 @@ import { Component, OnInit, Input, ViewChild, ContentChild, AfterViewInit, Chang
 export class TabComponent implements OnInit, AfterViewInit {
 
   @Input() header: any;
-  @Input() body: any;
+  @Input() @ContentChild(TabBodyComponent) body: any;
+
   _show: boolean;
   @Input() set show(val) {
     this._show = val;
@@ -18,8 +20,8 @@ export class TabComponent implements OnInit, AfterViewInit {
     return this._show;
   }
 
-  @ViewChild(TabComponent) selfTabComponent: TabComponent;
-  @ContentChild(TabComponent) htmlTabComponent: TabComponent;
+  // @ViewChild(TabComponent) selfTabComponent: TabComponent;
+  // @ContentChild(TabComponent) htmlTabComponent: TabComponent;
 
   constructor(private cdr: ChangeDetectorRef) { }
 

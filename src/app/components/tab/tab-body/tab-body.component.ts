@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { AddInHostDirective } from 'src/app/add-in-host.directive';
 
 @Component({
   selector: 'tab-content',
@@ -10,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TabBodyComponent implements OnInit {
 
+  @ViewChild(AddInHostDirective) adHost: AddInHostDirective;
   constructor() { }
 
   ngOnInit() {

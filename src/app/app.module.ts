@@ -8,10 +8,11 @@ import { TabComponent } from './components/tab/tab.component';
 import { AddInHostDirective } from './add-in-host.directive';
 import { TabHeaderComponent } from './components/tab/tab-header/tab-header.component';
 import { TabBodyComponent } from './components/tab/tab-body/tab-body.component';
+import { TabBodyDataComponent } from './components/tab-body-data/tab-body-data.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, TabsComponent, TabComponent, AddInHostDirective, TabHeaderComponent, TabBodyComponent ],
+  declarations: [ AppComponent, TabsComponent, TabComponent, AddInHostDirective, TabHeaderComponent, TabBodyComponent, TabBodyDataComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

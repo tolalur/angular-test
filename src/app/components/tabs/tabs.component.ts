@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChildren, AfterViewInit, ViewContainerRef, QueryList, ViewChild, ContentChildren } from '@angular/core';
+import { Component, Input, QueryList, ContentChildren } from '@angular/core';
 import { TabComponent } from '../tab/tab.component'
 
 @Component({
@@ -6,20 +6,9 @@ import { TabComponent } from '../tab/tab.component'
   templateUrl: './tabs.component.html',
   styles: [`div {margin-top: 10px;}`]
 })
-export class TabsComponent implements OnInit, AfterViewInit {
+export class TabsComponent {
 
-  @Input()showTab: boolean;
-
-  @ContentChildren (TabComponent) tabComponents: QueryList<TabComponent>;
-
-  constructor() {
-    this.showTab = true;
-  }
-
-  ngOnInit() {
-  }
-
-  ngAfterViewInit() {
-  }
-
+  @Input()
+  @ContentChildren(TabComponent) tabComponents: QueryList<TabComponent>;
+  
 }
